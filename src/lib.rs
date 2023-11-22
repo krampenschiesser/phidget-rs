@@ -69,6 +69,15 @@ pub use crate::digital_io::{DigitalInput, DigitalOutput};
 pub mod voltage_io;
 pub use crate::voltage_io::{VoltageInput, VoltageOutput};
 
+
+/// Phidget DC motor control
+pub mod dcmotor;
+pub use crate::dcmotor::DCMotor;
+
+/// Phidget BLDC motor control
+pub mod bldcmotor;
+pub use crate::bldcmotor::BLDCMotor;
+
 /// An infinite timeout (wait forever)
 pub const TIMEOUT_INFINITE: Duration = Duration::from_millis(PHIDGET_TIMEOUT_INFINITE as u64);
 
