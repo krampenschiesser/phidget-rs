@@ -27,6 +27,7 @@ pub type DigitalInputCallback = dyn Fn(&DigitalInput, i32) + Send + 'static;
 /////////////////////////////////////////////////////////////////////////////
 
 /// Phidget digital input
+#[derive(Debug)]
 pub struct DigitalInput {
     // Handle to the digital input in the phidget22 library
     chan: DigitalInputHandle,
@@ -153,6 +154,7 @@ impl Drop for DigitalInput {
 /////////////////////////////////////////////////////////////////////////////
 
 /// Phidget digital output
+#[derive(Debug)]
 pub struct DigitalOutput {
     // Handle to the digital output in the phidget22 library
     chan: DigitalOutputHandle,

@@ -23,6 +23,7 @@ pub type VoltageChangeCallback = dyn Fn(&VoltageInput, f64) + Send + 'static;
 /////////////////////////////////////////////////////////////////////////////
 
 /// Phidget voltage input
+#[derive(Debug)]
 pub struct VoltageInput {
     // Handle to the voltage input in the phidget22 library
     chan: VoltageInputHandle,
@@ -153,6 +154,7 @@ impl Drop for VoltageInput {
 /////////////////////////////////////////////////////////////////////////////
 
 /// Phidget voltage output
+#[derive(Debug)]
 pub struct VoltageOutput {
     // Handle to the voltage output in the phidget22 library
     chan: VoltageOutputHandle,

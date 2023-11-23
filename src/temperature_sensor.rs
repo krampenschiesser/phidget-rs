@@ -20,6 +20,7 @@ use std::{mem, os::raw::c_void, ptr};
 pub type TemperatureCallback = dyn Fn(&TemperatureSensor, f64) + Send + 'static;
 
 /// Phidget temperature sensor
+#[derive(Debug)]
 pub struct TemperatureSensor {
     // Handle to the sensor for the phidget22 library
     chan: TemperatureSensorHandle,

@@ -22,6 +22,7 @@ use std::{mem, os::raw::c_void, ptr};
 pub type HumidityCallback = dyn Fn(&HumiditySensor, f64) + Send + 'static;
 
 /// Phidget humidity sensor
+#[derive(Debug)]
 pub struct HumiditySensor {
     // Handle to the sensor for the phidget22 library
     chan: HumiditySensorHandle,

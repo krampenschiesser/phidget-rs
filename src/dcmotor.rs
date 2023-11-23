@@ -16,6 +16,7 @@ pub type VelocityCallback = dyn Fn(&DCMotor, f64) + Send + 'static;
 
 
 /// Represents a DC motor in the Phidgets system.
+#[derive(Debug)]
 pub struct DCMotor {
     handle: PhidgetDCMotorHandle,
     // Double-boxed VelocityCallback, if registered

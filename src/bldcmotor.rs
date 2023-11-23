@@ -13,6 +13,7 @@ pub type PositionChangeCallback = dyn Fn(&BLDCMotor, f64) + Send + 'static;
 
 
 /// Represents a DC motor in the Phidgets system.
+#[derive(Debug)]
 pub struct BLDCMotor {
     handle: PhidgetBLDCMotorHandle,
     // Double-boxed VelocityCallback, if registered
