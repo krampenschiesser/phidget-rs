@@ -198,6 +198,13 @@ impl BLDCMotor {
         ReturnCode::result(unsafe { PhidgetBLDCMotor_enableFailsafe(self.handle, failsafe_time as c_uint) })
     }
 
+    /// Resets the failsafe timer, if one has been set. See PhidgetBLDCMotor_enableFailsafe() for details.
+    ///
+    /// This function will fail if no failsafe timer has been set for the channel.
+    pub fn reset_failsafe(&self) -> Result<()> {
+        ReturnCode::result(unsafe { PhidgetBLDCMotor_resetFailsafe(self.handle) })
+    }
+
     /// Gets the position of the motor.
     pub fn get_position(&self) -> Result<f64> {
         let mut position = 0.0;

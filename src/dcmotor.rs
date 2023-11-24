@@ -10,7 +10,6 @@ use crate::{Result, ReturnCode, Phidget, GenericPhidget, AttachCallback, DetachC
 use phidget_sys::*;
 
 
-
 /// The function signature for the safe Rust digital input state change callback.
 pub type VelocityCallback = dyn Fn(&DCMotor, f64) + Send + 'static;
 
@@ -141,7 +140,7 @@ impl DCMotor {
 
     /// Sets the failsafe time of the motor.
     pub fn get_min_failsafe_time(&self) -> Result<u32> {
-        let mut min_failsafe_time:c_uint = 0;
+        let mut min_failsafe_time: c_uint = 0;
         ReturnCode::result(unsafe { PhidgetDCMotor_getMinFailsafeTime(self.handle, &mut min_failsafe_time) })?;
         Ok(min_failsafe_time)
     }
@@ -156,6 +155,13 @@ impl DCMotor {
     /// Enables fail safe mode for the motor.
     pub fn enable_fail_safe(&self, failsafe_time: i32) -> Result<()> {
         ReturnCode::result(unsafe { PhidgetDCMotor_enableFailsafe(self.handle, failsafe_time as c_uint) })
+    }
+
+    ///    Resets the failsafe timer, if one has been set. See PhidgetBLDCMotor_enableFailsafe() for details.
+    ///
+    /// This function will fail if no failsafe timer has been set for the channel.
+    pub fn reset_failsafe(&self) -> Result<()> {
+        ReturnCode::result(unsafe { PhidgetDCMotor_resetFailsafe(self.handle) })
     }
 
     /// Sets a handler to receive attach callbacks
