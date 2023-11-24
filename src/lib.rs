@@ -59,7 +59,7 @@ pub use crate::humidity_sensor::HumiditySensor;
 
 /// Phidget temerature sensor
 pub mod temperature_sensor;
-pub use crate::temperature_sensor::TemperatureSensor;
+pub use crate::temperature_sensor::{TemperatureSensor,ThermoCoupleType, RtdType, RtdWireSetup, TemperatureCallback};
 
 /// Phidget digital I/O
 pub mod digital_io;
@@ -72,11 +72,11 @@ pub use crate::voltage_io::{VoltageInput, VoltageOutput};
 
 /// Phidget DC motor control
 pub mod dcmotor;
-pub use crate::dcmotor::DCMotor;
+pub use crate::dcmotor::{DCMotor,VelocityCallback};
 
 /// Phidget BLDC motor control
 pub mod bldcmotor;
-pub use crate::bldcmotor::BLDCMotor;
+pub use crate::bldcmotor::{BLDCMotor,VelocityCallback as BLDCVelocityCallback, PositionChangeCallback as BLDCPositionChangeCallback};
 
 /// An infinite timeout (wait forever)
 pub const TIMEOUT_INFINITE: Duration = Duration::from_millis(PHIDGET_TIMEOUT_INFINITE as u64);
